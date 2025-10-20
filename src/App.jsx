@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Home from "./pages/Home";
 import { currencycontext } from "./currencycontext";
+import Routing from "./Components/Routing/Routing";
 
 function App(){
 
@@ -11,7 +12,7 @@ function App(){
   return(
     <>
     <currencycontext.Provider value = {{currency, setCurrency}}>
-      <Home />
+      <Routing />
     </currencycontext.Provider>
     
     
