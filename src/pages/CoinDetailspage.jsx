@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { FetchCoinDetails } from "../Service/FetchCoinDetails";
 import PageLoader from "../Components/Loader/PageLoader";
+import CoinInfoContainer from "../Components/CoinInfo/CoinInfoContainer";
 
 
 
@@ -9,7 +10,7 @@ import PageLoader from "../Components/Loader/PageLoader";
 function CoinDetailsPage(){
     const {coinId} = useParams();
 
-     const { data: coin, isError, isLoading } = useQuery({
+    const { data: coin, isError, isLoading } = useQuery({
     queryKey: ["coin", coinId],
     queryFn: () => FetchCoinDetails(coinId),
         cacheTime: 1000 * 60 * 8,
@@ -50,6 +51,10 @@ function CoinDetailsPage(){
                     </div>
                     </div>
                 </div>
+            </div>
+
+            <div className="w-full px-6 md:w-2/3">
+                <CoinInfoContainer coinId={coinId}/>
             </div>
             
         </div>
